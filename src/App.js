@@ -17,22 +17,22 @@ class App extends Component {
   allowed to submit.
   */
   state = {
-    messages: [],
+    msgs: [],
   };
 
-  onMsg = (username, message) => {
+  onMsg = (username, msg) => {
     const newMsg = {
       username: username,
-      text: message,
+      text: msg,
     };
     this.setState(currState => ({
-      messages: currState.messages.concat([newMsg]),
+      msgs: currState.msgs.concat([newMsg]),
     })
     );
   };
 
   render() {
-    const { messages } =  this.state;
+    const { msgs } =  this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -41,7 +41,7 @@ class App extends Component {
         </header>
         <div className="container">
           {users.map( user => (
-            <ChatWindow key={user.username} user={user} messages={messages} onMsg={this.onMsg}/>
+            <ChatWindow key={user.username} user={user} msgs={msgs} onMsg={this.onMsg}/>
           ))}
         </div>
       </div>

@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 
 // stateless functional component
 const MsgHistory = props => {
-  const { messages, user } = props;
+  const { msgs, user } = props;
   return (
     <ul className="message-list">
-      {messages.map((message, index) => (
+      {msgs.map((msg, index) => (
         <li
           key={index}
           className={
-            message.username === user.username ? 'message sender' : 'message recipient'
+            msg.username === user.username ? 'message sender' : 'message recipient'
           }
         >
-          <p>{`${message.username}: ${message.text}`}</p>
+          <p>{`${msg.username}: ${msg.text}`}</p>
         </li>
       ))}
     </ul>
@@ -22,7 +22,7 @@ const MsgHistory = props => {
 
 
 MsgHistory.propTypes = {
-  messages: PropTypes.array.isRequired,
+  msgs: PropTypes.array.isRequired,
   user: PropTypes.object.isRequired,
 };
 
